@@ -1,0 +1,6 @@
+{
+  "name": "Markets Overview",
+  "description": "Comprehensive global markets overview dashboard featuring real-time indices, stocks, crypto, forex, futures, and interactive charts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
