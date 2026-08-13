@@ -10,6 +10,7 @@ import { MarketHeatmap } from './components/MarketHeatmap';
 import { PriceAlertModal } from './components/PriceAlertModal';
 import { DetailModal } from './components/DetailModal';
 import { SearchModal } from './components/SearchModal';
+import { DisqusForum } from './components/DisqusForum';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -274,6 +275,9 @@ export default function App() {
             </button>
           </div>
         </section>
+
+        {/* Embedded Disqus Community Forum */}
+        <DisqusForum />
       </main>
 
       {/* Footer */}
