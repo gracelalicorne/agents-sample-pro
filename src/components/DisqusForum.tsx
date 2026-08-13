@@ -1,6 +1,14 @@
 import React, { useEffect } from 'react';
 
-export const DisqusForum: React.FC = () => {
+interface DisqusForumProps {
+  title?: string;
+  subtitle?: string;
+}
+
+export const DisqusForum: React.FC<DisqusForumProps> = ({
+  title = 'Markets Discussion & Trader Forum',
+  subtitle = 'Share real-time trading ideas, market predictions, and technical analysis with fellow traders.',
+}) => {
   useEffect(() => {
     // Check if script is already added
     const embedScriptId = 'disqus-embed-script';
@@ -39,10 +47,10 @@ export const DisqusForum: React.FC = () => {
           </div>
           <div>
             <h3 className="font-headline text-lg font-bold text-white">
-              Community Discussion
+              {title}
             </h3>
             <p className="text-xs text-gray-400">
-              Share trading ideas, market predictions, and technical analysis with other traders.
+              {subtitle}
             </p>
           </div>
         </div>

@@ -8,6 +8,8 @@ interface HeaderProps {
   onToggleLiveTicking: () => void;
   watchlistCount: number;
   onOpenAlertsModal: () => void;
+  activePage: string;
+  onSelectPage: (page: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -18,6 +20,8 @@ export const Header: React.FC<HeaderProps> = ({
   onToggleLiveTicking,
   watchlistCount,
   onOpenAlertsModal,
+  activePage,
+  onSelectPage,
 }) => {
   const [showLanguageModal, setShowLanguageModal] = useState(false);
   const [showUserModal, setShowUserModal] = useState(false);
@@ -45,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({
     return () => clearInterval(timer);
   }, []);
 
-  const navItems = ['Products', 'Community', 'Markets', 'Brokers', 'More'];
+  const navItems = ['Markets', 'Products', 'Community', 'Brokers', 'More'];
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,6 +70,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center gap-2 text-white hover:opacity-90 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
+              onSelectPage('Markets');
               onSelectCategory('US stocks');
             }}
           >
@@ -108,14 +113,14 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Navigation Links */}
         <nav className="hidden lg:flex items-center gap-1 mx-4 text-sm font-medium">
           {navItems.map((item) => {
-            const isActive = item === 'Markets';
+            const isActive = item === activePage;
             return (
               <a
                 key={item}
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  if (item === 'Markets') onSelectCategory('US stocks');
+                  onSelectPage(item);
                 }}
                 className={`px-3.5 py-1.5 rounded-md transition-colors ${
                   isActive
